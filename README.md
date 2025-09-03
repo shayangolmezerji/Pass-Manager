@@ -1,4 +1,4 @@
-# Pass-Manager: A CLI Password Manager
+# Pass-Manager: A CLI Password Manager 🔐
 
 Pass-Manager is a simple yet powerful command-line password manager for Linux. It uses the trusted GnuPG (GPG) to encrypt and store your credentials locally, providing a secure and minimalist solution for managing your data without any hassle.
 
@@ -8,8 +8,9 @@ Pass-Manager is a simple yet powerful command-line password manager for Linux. I
 
   * **GPG Encryption**: Your data is secured locally using the industry-standard GnuPG, ensuring only you can access it.
   * **Simple & Effective**: A minimal, intuitive command-line interface that gets the job done without any bloat.
-  * **Built-in Generator**: Quickly generate strong, random passwords on the fly.
+  * **Built-in Generator**: Quickly generate strong, random passwords on the fly, now with a wider range of special characters.
   * **Full Control**: Add, retrieve, list, and delete your credentials with ease.
+  * **Clipboard Integration**: The `get` command securely copies the password to your clipboard for easy pasting.
   * **Pure Bash**: A lightweight script with zero external dependencies, making it fast and reliable.
 
 -----
@@ -18,7 +19,12 @@ Pass-Manager is a simple yet powerful command-line password manager for Linux. I
 
 #### Prerequisites
 
-You must have **GnuPG (GPG)** installed and a GPG key pair set up on your system.
+You must have **GnuPG (GPG)** installed and a GPG key pair set up on your system. For the clipboard feature to work, you also need to install **`xclip`**.
+
+```bash
+# Example for Debian/Ubuntu
+sudo apt-get install gpg xclip
+```
 
 #### 1\. Clone the repository
 
@@ -29,11 +35,11 @@ cd Pass-Manager
 
 #### 2\. Configure Your GPG Key
 
-Open the `pass-manager.sh` file and set the `GPG_RECIPIENT` variable to your GPG user ID.
+Open the `pass-manager.sh` file and set the `GPG_RECIPIENT` variable to your GPG user ID. This must be a key that is present in your keyring. You can find your key ID by running `gpg --list-keys`.
 
 ```bash
 # Example:
-GPG_RECIPIENT="Shayan Golmezerji (pass) <shayangolmezerji@example.com>"
+GPG_RECIPIENT="Your Name (Your Key ID) <your-email@example.com>"
 ```
 
 #### 3\. Make the script executable
@@ -59,7 +65,7 @@ Once installed, simply run `pass` with a command to manage your passwords.
   * **`pass add`**
       * Adds a new password entry.
   * **`pass get <service-name>`**
-      * Retrieves and displays the password for a specific service.
+      * Retrieves the password for a specific service and copies it to your clipboard.
   * **`pass list`**
       * Lists all saved password entries.
   * **`pass delete`**
@@ -73,4 +79,4 @@ Once installed, simply run `pass` with a command to manage your passwords.
 
 ### 👨‍💻 Author
 
-Made with ❤️ by [Shayan Golmezerji](github.com/shayangolmezerji)
+Made with ❤️ by [Shayan Golmezerji](https://www.google.com/search?q=https://github.com/shayangolmezerji)
